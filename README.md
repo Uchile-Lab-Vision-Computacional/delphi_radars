@@ -60,10 +60,10 @@ Card 0:
     Max Bitrate: 0
 ```
 
-Here, the number following `S/N` is the **circuid hardware id** and the number following `Index` is the **can circuit id**. Both this parameters must be correctly set in the launch file of the radar for it to work properly.
+Here, the number following `S/N` is the **hardware id** and the number following `Index` is the **circuit id**. Both this parameters must be correctly set in the launch file of the radar for it to work properly.
 
 ## Launch files
-Currently, the launch file used is tested for the delphi ESR radar. Note that the `use_kvaser` parameter must be set to true or the launch file will not be able to process the radar data.   
+Currently, the launch file used is tested for the delphi ESR radar. Note that the `use_kvaser` parameter must be set to true and the `kvaser_hardware_id` & `kvaser_circuit_id` must be set to their correct values. Otherwise the launch file will not be able to process the radar data.   
 ``` 
 roslaunch delphi_esr delphi_esr.launch use_kvaser:=true
 ```
