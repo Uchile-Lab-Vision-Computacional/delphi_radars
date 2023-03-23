@@ -1,5 +1,5 @@
 # Repository for use of delphi ESR & SSR Radars
-This repository includes instructions and tools for the use of the Autonomoustuff Delphi ESR & SSR radars availible in the laboratory. 
+This repository includes a ROS workspace with tools for the use of the Autonomoustuff Delphi ESR & SSR radars availible in the laboratory. 
 The connection with the computer is done via the Kvaser Leaf Light v2 CAN to USB interface.
 
 ## Installation
