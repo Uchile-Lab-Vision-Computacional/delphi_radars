@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="esr_frame_id" default="esr_1" />
+  <arg name="esr_upside_down" default="false" />
+  <arg name="use_kvaser" default="true" />
+  <arg name="kvaser_hardware_id" default="53615" />
+  <arg name="kvaser_circuit_id" default="0" />
+
+
+  <include file="$(find delphi_esr)/launch/delphi_esr_can.launch">
+    <arg name="frame_id" value="$(arg esr_frame_id)" />
+    <arg name="esr_upside_down" value="$(arg esr_upside_down)" />
+    <arg name="use_kvaser" value="$(arg use_kvaser)" />
+    <arg name="kvaser_hardware_id" value="$(arg kvaser_hardware_id)"/>
+    <arg name="kvaser_circuit_id" value="$(arg kvaser_circuit_id)"  />
+  </include>
+
+
+  <node pkg="tf" type="static_transform_publisher" name="esr_1" 
+  args="0 0 0 0 0 0 world $(arg esr_frame_id) 100" />
+
+  <node pkg="esr_radar" type="radar_track_to_pointcloud.py" name="pointcloud_node" />
+
+  <node type="rviz" name="rviz" pkg="rviz"  args="-d $(find esr_radar)/rviz/esr_config.rviz" />
+</launch>
